@@ -9,7 +9,7 @@
 namespace App\Api;
 
 
-use Illuminate\Support\Facades\Config;
+use GuzzleHttp\Client;
 
 class Redgram
 {
@@ -41,5 +41,31 @@ class Redgram
         if (!file_put_contents($envFile, $str)) return false;
         return true;
 
+    }
+
+    /**
+     * @param $username
+     * @param $password
+     * @param $subreddit
+     * @return mixed
+     */
+    public static function getRedditPosts($username, $password, $subreddit)
+    {
+        $url = sprintf("http://www.reddit.com/r/%s/new/.json", $subreddit);
+        $client = new Client();
+        $response = $client->get($url, [
+            'auth' => [
+                $username,
+                $password
+            ],
+            'headers' => [
+                'User-Agent' => config('app.user-agent'),
+            ],
+            'query' => [
+                "sort" => "new",
+                'limit' => 100
+            ]
+        ]);
+        return json_decode($response->getBody()->getContents());
     }
 }

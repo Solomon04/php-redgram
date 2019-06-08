@@ -6,7 +6,7 @@ use App\Api\Redgram;
 use Illuminate\Console\Scheduling\Schedule;
 use LaravelZero\Framework\Commands\Command;
 
-class SubmitInstagramCredentials extends Command
+class InstagramAuthentication extends Command
 {
     /**
      * The signature of the command.

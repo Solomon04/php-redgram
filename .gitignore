@@ -4,6 +4,7 @@
 /.vagrant
 /database/database.sqlite
 hashtags.txt
+caption.txt
 credentials.json
 .env
 storage/
