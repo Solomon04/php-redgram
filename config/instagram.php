@@ -6,5 +6,7 @@ return [
 
     'custom_caption' => true,
 
-    'hashtags' => true
+    'hashtags' => true,
+
+    'posts_per_day' => 4
 ];

@@ -18,7 +18,7 @@ class MainCommand extends Command
      *
      * @var string
      */
-    protected $signature = 'main';
+    protected $signature = 'main {--y}';
 
     /**
      * The description of the command.
@@ -74,8 +74,10 @@ class MainCommand extends Command
                 exec($path);
             }
 
-            if (!$this->confirm('Do you want to post this?')) {
-                continue;
+            if(!$this->option('y')){
+                if (!$this->confirm('Do you want to post this?')) {
+                    continue;
+                }
             }
 
             try {
@@ -88,7 +90,6 @@ class MainCommand extends Command
                     }catch (\Exception $exception){
                         $error = "Error: " . $exception->getMessage()."\n";
                         $this->warn($error);
-                        $this->notify($error);
                     }
                 }
 
@@ -99,7 +100,6 @@ class MainCommand extends Command
                     }catch (\Exception $exception){
                         $error = "Error: " . $exception->getMessage()."\n";
                         $this->warn($error);
-                        $this->notify($error);
                     }
 
                 }
@@ -109,7 +109,6 @@ class MainCommand extends Command
             } catch (\Exception $e) {
                 $error = 'Something went wrong: '.$e->getMessage()."\n";
                 $this->warn($error);
-                $this->notify($error);
             }
 
         }
