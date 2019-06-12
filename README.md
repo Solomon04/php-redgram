@@ -100,7 +100,7 @@ If you want to automatically post to Instagram without verifying the image you c
 ## Demonstration
 Here is a demonstration of manually utilizing the application with Windows. Currently the manual prompting only works for Windows right now though, MacOS and Linux support will be coming very soon. 
 
-[![Redgram Demo](https://img.youtube.com/vi/5Rfh16ZhI/0.jpg)](https://www.youtube.com/watch?v=5Rfh16ZhI-Q) 
+[![Redgram Demo](https://img.youtube.com/vi/5Rfh16ZhI-Q/0.jpg)](https://www.youtube.com/watch?v=5Rfh16ZhI-Q) 
 
 
 ## Support the development
