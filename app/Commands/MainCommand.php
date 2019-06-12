@@ -110,7 +110,9 @@ class MainCommand extends Command
                 $error = 'Something went wrong: '.$e->getMessage()."\n";
                 $this->warn($error);
             }
-
+            if($this->option('y')){
+                break;
+            }
         }
 
     }
@@ -123,6 +125,10 @@ class MainCommand extends Command
      */
     public function schedule(Schedule $schedule): void
     {
-        // $schedule->command(static::class)->everyMinute();
+        $schedule->command(static::class . "--y")->dailyAt('9:00');
+        $schedule->command(static::class . "--y")->dailyAt('12:00');
+        $schedule->command(static::class . "--y")->dailyAt('15:00');
+        $schedule->command(static::class . "--y")->dailyAt('18:00');
+        $schedule->command(static::class . "--y")->dailyAt('21:00');
     }
 }
